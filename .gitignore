@@ -45,4 +45,4 @@ CTestTestfile.cmake
 _deps
 
 #Build
-build/*
+build/
