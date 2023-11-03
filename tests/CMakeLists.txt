@@ -1,5 +1,3 @@
-project (DataStructures)
-
 message(STATUS "Catch2 will be retrieved with FetchContent")
 
 Include(FetchContent)

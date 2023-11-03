@@ -1,5 +1,3 @@
-project (DataStructures)
-
 add_library(datastructures INTERFACE)
 
 target_sources(datastructures
