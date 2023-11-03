@@ -1,5 +1,0 @@
-if(EXISTS "/home/lyuben/cpp/sdp/data_structures/build/tests/unit-tests_tests-b12d07c.cmake")
-  include("/home/lyuben/cpp/sdp/data_structures/build/tests/unit-tests_tests-b12d07c.cmake")
-else()
-  add_test(unit-tests_NOT_BUILT-b12d07c unit-tests_NOT_BUILT-b12d07c)
-endif()
