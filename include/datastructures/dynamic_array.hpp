@@ -13,13 +13,13 @@ class DynamicArray {
  public:
     DynamicArray() : data(nullptr), sz(0), capacity(0) {}
     DynamicArray(const DynamicArray &other) {
-        this->copy(other);
+        copyFrom(other);
     }
 
     DynamicArray& operator= (const DynamicArray &other) {
         if (this != &other) {
             free();
-            this->copy(other);
+            copyFrom(other);
         }
 
         return *this;
@@ -69,7 +69,7 @@ class DynamicArray {
         capacity = 0;
     }
 
-    void copy(const DynamicArray &other) {
+    void copyFrom(const DynamicArray &other) {
         if (other.capacity == 0) {
             *this = DynamicArray();
 

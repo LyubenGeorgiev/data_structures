@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "string_view": "cpp"
     }
 }
