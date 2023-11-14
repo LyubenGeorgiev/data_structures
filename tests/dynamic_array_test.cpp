@@ -1,8 +1,12 @@
-#include <datastructures/dynamic_array.h>
+/*
+  Copyright 2023 Lyuben Georgiev
+  Tests for the implementation of Dynamic Array
+*/
+
+#include <datastructures/dynamic_array.hpp>
 #include "catch2/catch_all.hpp"
 
-TEST_CASE("test test")
-{
+TEST_CASE("test test") {
 	DynamicArray<int> arr;
 
     for (int i = 0; i < 10; ++i) {

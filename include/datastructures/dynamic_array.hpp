@@ -1,12 +1,16 @@
+/*
+  Copyright 2023 Lyuben Georgiev
+  Implementation of Dynamic Array
+*/
+
 #pragma once
 
 #include <cstdlib>
 
 
 template <typename T>
-class DynamicArray
-{
-public:
+class DynamicArray {
+ public:
     DynamicArray() : data(nullptr), sz(0), capacity(0) {}
     DynamicArray(const DynamicArray &other) {
         copy(other);
@@ -50,14 +54,14 @@ public:
         return data[idx];
     }
 
-private:
+ private:
     T* data;
     std::size_t sz;
     std::size_t capacity;
 
     static const std::size_t REALLOC_STEP = 2;
 
-private:
+ private:
     void free() {
         delete[] data;
         data = nullptr;
@@ -90,5 +94,4 @@ private:
         data = buffer;
         capacity = n;
     }
-
 };

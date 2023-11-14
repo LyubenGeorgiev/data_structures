@@ -1,5 +1,10 @@
+/*
+  Copyright 2023 Lyuben Georgiev
+  Simple example for library usage
+*/
+
 #include <iostream>
-#include <datastructures/dynamic_array.h>
+#include <datastructures/dynamic_array.hpp>
 
 int main() {
     DynamicArray<int> arr;
