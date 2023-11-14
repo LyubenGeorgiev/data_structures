@@ -13,13 +13,13 @@ class DynamicArray {
  public:
     DynamicArray() : data(nullptr), sz(0), capacity(0) {}
     DynamicArray(const DynamicArray &other) {
-        copy(other);
+        this->copy(other);
     }
 
     DynamicArray& operator= (const DynamicArray &other) {
         if (this != &other) {
             free();
-            copy(other);
+            this->copy(other);
         }
 
         return *this;
