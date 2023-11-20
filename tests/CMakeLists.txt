@@ -25,6 +25,7 @@ target_link_libraries(unit-tests
 target_sources(unit-tests
 	PRIVATE
 		"dynamic_array_test.cpp"
+        "doubly_linked_list_test.cpp"
 )
 
 include(CTest)
