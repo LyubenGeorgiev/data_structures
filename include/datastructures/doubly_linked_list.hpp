@@ -10,13 +10,15 @@
 
 template <typename T>
 class DoublyLinkedList {
-public:
+ public:
     struct DoublyLinkedListNode {
         T value;
         DoublyLinkedListNode* prev;
         DoublyLinkedListNode* next;
 
-        DoublyLinkedListNode(T value, DoublyLinkedListNode* prev = nullptr, DoublyLinkedListNode* next = nullptr)
+        explicit DoublyLinkedListNode(T value,
+                             DoublyLinkedListNode* prev = nullptr,
+                             DoublyLinkedListNode* next = nullptr)
             : value(value), prev(prev), next(next) {}
     };
 
@@ -24,7 +26,7 @@ public:
     // friend class const_iterator;
 
     class iterator {
-    public:
+     public:
         friend class DoublyLinkedList;
         bool operator== (const iterator& it) const {
             return ptr == it.ptr;
@@ -42,39 +44,38 @@ public:
             return ptr->value;
         }
 
-        const iterator operator++ (int) const { // i++
+        const iterator operator++ (int) const {  // i++
             iterator toRet = (*this);
             ++(*this);
             return toRet;
         }
 
-        iterator& operator++ () { // ++i
+        iterator& operator++ () {  // ++i
             ptr = ptr->next;
 
             return *this;
         }
 
-        const iterator operator-- (int) const { // i--
+        const iterator operator-- (int) const {  // i--
             iterator toRet = (*this);
             --(*this);
             return toRet;
         }
 
-        iterator& operator-- () { // --i
+        iterator& operator-- () {  // --i
             ptr = ptr->prev;
 
             return *this;
         }
 
-        iterator(DoublyLinkedListNode* ptr)
-            : ptr(ptr) {}
+        explicit iterator(DoublyLinkedListNode* ptr) : ptr(ptr) {}
 
-    private:
+     private:
         DoublyLinkedListNode* ptr;
     };
 
     class const_iterator {
-    public:
+     public:
         bool operator== (const const_iterator& it) const {
             return ptr == it.ptr;
         }
@@ -87,34 +88,33 @@ public:
             return ptr->value;
         }
 
-        const const_iterator operator++ (int) const { // i++
+        const const_iterator operator++ (int) const {  // i++
             const_iterator toRet = (*this);
             ++(*this);
             return toRet;
         }
 
-        const_iterator& operator++ () { // ++i
+        const_iterator& operator++ () {  // ++i
             ptr = ptr->next;
 
             return *this;
         }
 
-        const const_iterator operator-- (int) const { // i--
+        const const_iterator operator-- (int) const {  // i--
             const_iterator toRet = (*this);
             --(*this);
             return toRet;
         }
 
-        const_iterator& operator-- () { // --i
+        const_iterator& operator-- () {  // --i
             ptr = ptr->prev;
 
             return *this;
         }
 
-        const_iterator(DoublyLinkedListNode* ptr)
-            : ptr(ptr) {}
+        explicit const_iterator(DoublyLinkedListNode* ptr) : ptr(ptr) {}
 
-    private:
+     private:
         DoublyLinkedListNode* ptr;
     };
 
@@ -142,20 +142,17 @@ public:
         return const_iterator(nullptr);
     }
 
-    DoublyLinkedList()
-        : head(nullptr), tail(nullptr), sz(0) {
-        ;
-    }
+    DoublyLinkedList() : head(nullptr), tail(nullptr), sz(0) {}
 
     DoublyLinkedList(const DoublyLinkedList &other)
         : DoublyLinkedList() {
-        copy(other);
+        copyFrom(other);
     }
 
     DoublyLinkedList& operator= (const DoublyLinkedList &other) {
         if (this != &other) {
             free();
-            copy(other);
+            copyFrom(other);
         }
 
         return *this;
@@ -258,10 +255,9 @@ public:
             delete it.ptr;
         }
     }
-    
-private:
-    // TODO
-    void copy(const DoublyLinkedList &other) {
+
+ private:
+    void copyFrom(const DoublyLinkedList &other) {
         DoublyLinkedListNode* cur = other.head;
 
         while (cur) {
@@ -283,9 +279,8 @@ private:
         sz = 0;
     }
 
-private:
+ private:
     DoublyLinkedListNode* head;
     DoublyLinkedListNode* tail;
     std::size_t sz;
-
 };
